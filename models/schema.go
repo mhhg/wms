@@ -1,15 +1,12 @@
-package model
+package models
 
 import (
 	"gopkg.in/mgo.v2/bson"
 )
 
 type (
-	Activity struct {
-		Id bson.ObjectId
-	}
-	Task struct {
-	}
+	Activity   struct{}
+	Task       struct{}
 	Process    struct{}
 	Vendor     struct{}
 	User       struct{}
