@@ -39,8 +39,10 @@ func DisplayAppError(c echo.Context, handleError error, message string, code int
 	}
 }
 
+// AppConfig holds the configuration values from config.json file
 var AppConfig configuration
 
+// Initialize AppConfig
 func initConfig() {
 	loadAppConfig()
 }
