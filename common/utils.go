@@ -3,15 +3,16 @@ package common
 import (
 	"encoding/json"
 	"log"
-	"net/http"
 	"os"
+
+	"github.com/labstack/echo"
 )
 
 type (
 	appError struct {
 		Error      string `json:"error"`
 		Message    string `json:"message"`
-		HttpStatus int    `json:"status"`
+		HTTPStatus int    `json:"status"`
 	}
 	errorResource struct {
 		Data appError `json:"data"`
@@ -26,16 +27,18 @@ type (
 	}
 )
 
+// DisplayAppError make a marshal copy of error and log the error on stdout
 func DisplayAppError(c echo.Context, handleError error, message string, code int) {
 	errObj := appError{
-		Error:      handlerError.Error(),
+		Error:      handleError.Error(),
 		Message:    message,
-		HttpStatus: code,
+		HTTPStatus: code,
 	}
 
-	Error.Printf("[AppError]: %s\n", handlerError)
+	log.Printf("[AppError]: %s\n", handleError)
 	if j, err := json.Marshal(errorResource{Data: errObj}); err == nil {
-		w.Write(j)
+		// w.Write(j)
+		log.Printf("[j: %s, err: %s]", j, err)
 	}
 }
 
