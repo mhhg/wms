@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/labstack/echo"
+	"github.com/mhhg/wms/common"
 	"github.com/mhhg/wms/routers"
 )
 
@@ -25,5 +26,7 @@ func main() {
 
 		return
 	})
-	e.Logger.Fatal(e.Start(":1323"))
+
+	common.InitServerLog(e)
+	e.Logger.Fatal(e.Start(":8000"))
 }
