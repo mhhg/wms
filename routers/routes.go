@@ -8,7 +8,7 @@ import (
 	"github.com/mhhg/wms/common"
 )
 
-// Init Entry point for setting routes
+// Init Entry point for setting routes, return map of hosts with address
 func Init() map[string]*common.Host {
 
 	hosts := map[string]*common.Host{}
