@@ -27,6 +27,6 @@ func main() {
 		return
 	})
 
-	common.InitServerLog(e)
+	common.ConfigureServerLog(e)
 	e.Logger.Fatal(e.Start(":8000"))
 }
